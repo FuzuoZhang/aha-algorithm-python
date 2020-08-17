@@ -4,7 +4,7 @@ import numpy as  np
 class Queue(object):
     def __init__(self, n):
         self.maxsize = n
-        self.data = np.zeros((n, ))
+        self.data = np.zeros((n, ), dtype=int)
         self.head = 0
         self.tail = 0
         self.len = 0
@@ -29,6 +29,13 @@ class Queue(object):
         else:
             print("队列为空，不可出队。")
 
+    def show(self):
+        i=self.head
+        t = 0
+        while t<self.len:
+            print(self.data[i])
+            i = (i+1)%self.maxsize
+            t+=1
 
 if __name__=="__main__":
     nums = [6,3,1,7,5,8,9,2,4]
